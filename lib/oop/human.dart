@@ -20,7 +20,25 @@ class Human {
     required this.isMarried,
   });
 
- // void run() {}
+  // void run() {}
+
+  void study(int hoursStudied) {
+    highschool(hoursStudied);
+    elementary(hoursStudied);
+    ebtedai(hoursStudied);
+    university(hoursStudied, true);
+  }
+
+  void playgames(int hours) {
+    if (age > 5 && studiedEnough) {
+      for (int i = 0; i < hours; i++) {
+        if (i != hours) {
+          print('You have played $i hours');
+        } else
+          print('You have played enough today ');
+      }
+    }
+  }
 
   void getMarried() {
     if (gender == 'male' && hasJob && age > 18) {
@@ -29,12 +47,6 @@ class Human {
       isMarried = true;
     }
   }
-
-  // void playgames(){
-  //   if(studiedEnough){
-
-  //   }
-  // }
 
   void playBasketball(int experience) {
     if (age < 7) {
@@ -68,7 +80,7 @@ class Human {
     }
   }
 
-  void childStudy(int studied) {
+  void ebtedai(int studied) {
     if (age < 12 && age > 6) {
       if (studied < 2) {
         studiedEnough = false;
@@ -78,14 +90,16 @@ class Human {
     }
   }
 
-  void uni(int studied) {
-    if (age > 18) {}
-  }
-
-  void study(int hoursStudied) {
-    highschool(hoursStudied);
-    elementary(hoursStudied);
-    childStudy(hoursStudied);
+  void university(int studied, bool shabeEmtahan) {
+    if (age > 18) {
+      if (!shabeEmtahan) {
+        studiedEnough = true;
+      } else if (studied > 4) {
+        studiedEnough = true;
+      } else if (studied < 4) {
+        print('inshalah obisi term');
+      }
+    }
   }
 
   Map toMap() {
